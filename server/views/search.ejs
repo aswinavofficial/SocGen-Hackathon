@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src=" https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <script type="text/javascript" class="init">
+	
+
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+        
+        
+            </script>
+</head>
+
+<body>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+	
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+									<thead>
+										<tr>
+											<th>Party A</th>
+											<th>Party B</th>
+											<th>ISDA Date</th>
+											<th>Contract Date</th>
+											<th>Value Date</th>
+											<th>Exchange Date</th>
+											<th>We Buy</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% doc.forEach(function(st){ %>
+											<tr>
+
+                                                <td><%= st.S82A %></td>   
+                                                <td><%= st.S87A %></td>    
+                                                <td><%= st.S77H%></td>   
+                                                <td><%= st.S30T %></td>    
+                                                <td><%= st.S30V %></td>   
+                                                <td><%= st.S36 %></td>    
+                                                <td><%= st.S32B %></td>   
+                                            
+											</tr>
+										<% }) %>
+										
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>Party A</th>
+											<th>Party B</th>
+											<th>ISDA Date</th>
+											<th>Contract Date</th>
+											<th>Value Date</th>
+											<th>Exchange Date</th>
+											<th>We Buy</th>
+										</tr>
+									</tfoot>
+								</table>
+
+   
+   
+
+
+
+</body>
+
+</html>
