@@ -8,7 +8,7 @@ const axios = require('axios');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+res.redirect('/search');
 });
 
 router.get('/match',function(req,res,next)
@@ -38,12 +38,13 @@ router.get('/match',function(req,res,next)
                   im2   : result[0]['S563'],
                   set2  : result[0]['S573'],
                   ben2  : result[0]['S583'],
+                  status : result[0]['STATUS']
 
                 }
               })
               .then(function (response) {
                 console.log(response);
-                res.send("hi")
+                res.send("Comp")
               })
               .catch(function (error) {
                 console.log(error);
@@ -53,6 +54,12 @@ router.get('/match',function(req,res,next)
 
 
 });
+
+router.get('/rebuild',function(req,res,next)
+{
+
+}
+);
 
 
 router.get('/check',function(req,res,next)
@@ -78,11 +85,18 @@ router.get('/check',function(req,res,next)
                 if (err) {
                     console.log("Error!!! Query");
                 } else {
-                //  res.render('search',{doc : result});
-                res.send(result);
+                    
+                    if (result.length > 0) {
+                        console.log(result[0]);
+                        res.send("MATCHED")
         
-                }
-            });
+                       }
+                       else {
+                           res.send("NOT MATCHED");
+
+                       }
+            }
+        });
 
 
 
